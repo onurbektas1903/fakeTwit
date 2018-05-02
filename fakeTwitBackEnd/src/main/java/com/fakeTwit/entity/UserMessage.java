@@ -6,10 +6,9 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import java.util.Date;
 
-
 @Entity
-@Table(name = "SIMPLE_MESSAGE")
-// User ile many to many ilişkisi kurarak composition yapabilirdim ama basit tutmak için kullanıcı adı ve mesaj tutuyorum.
+@Table(name = "USER_MESSAGE")
+//  basit tutmak için kullanıcı adı ve mesaj tutuyorum.
  // Kullanıcılar username bazında unique olacaktır.
 public class UserMessage extends BaseEntity{
     private String message;

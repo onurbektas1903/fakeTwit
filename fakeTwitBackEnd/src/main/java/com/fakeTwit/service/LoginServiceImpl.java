@@ -21,13 +21,14 @@ public class LoginServiceImpl implements LoginService{
 
     @Override
     public User fakeLogin(User userClient) {
-
+        if(userClient == null ||userClient.getUserName()== null ||userClient.getPassword() == null){
+            throw new CustomException("Geçersiz Kullanıcı Adı veya Parolası girilmemiş");
+        }
         User userDb =  userRepository.findByUserName(userClient.getUserName());
-        // Bu kodda string yerine custom exception yazıp onu fırlatabilirdim. Simple tutmak için bu şekilde yaptım
         if(userDb == null){
-           throw new CustomException("Geçersiz Kullanıcı Adı");
+           throw new CustomException("Geçersiz Kullanıcı Adı veya Parolası");
         }else if(!userClient.getPassword().equals(userDb.getPassword())){
-            throw new CustomException("Geçersiz Kullanıcı Parolası");
+            throw new CustomException("Geçersiz Kullanıcı Adı veya Parolası");
 
         }else{
             return userDb;
