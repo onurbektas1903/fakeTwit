@@ -4,7 +4,6 @@ package com.fakeTwit.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "USER_SIMPLE")
@@ -20,7 +19,7 @@ public class User extends BaseEntity{
         this.userName = userName;
         this.password = password;
     }
-    @Column(name = "USER_NAME")
+    @Column(name = "USER_NAME",unique = true)
     public String getUserName() {
         return userName;
     }

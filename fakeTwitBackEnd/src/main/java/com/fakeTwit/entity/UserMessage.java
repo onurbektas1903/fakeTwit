@@ -1,9 +1,6 @@
 package com.fakeTwit.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -14,7 +11,6 @@ public class UserMessage extends BaseEntity{
     private String message;
     private String sendBy;
     private Date createdTime;
-
     public String getMessage() {
         return message;
     }
