@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  isActive(){
+    if(localStorage.getItem("currentUser")){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

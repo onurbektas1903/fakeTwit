@@ -14,6 +14,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import {AuthenticationService} from './service/auth-service';
 import {DateTimeFormatPipe} from './util/date-format-pipe';
 import { HomeComponent } from './home/home.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HomeComponent } from './home/home.component';
     UserMessageComponent,
     ToolbarComponent,
     DateTimeFormatPipe,
-    HomeComponent
+    HomeComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

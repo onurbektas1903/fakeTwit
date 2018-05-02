@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../entity/user';
 import {AuthenticationService} from '../service/auth-service';
 import {Router} from '@angular/router';
+import {errorHandler} from '@angular/platform-browser/src/browser';
 
 @Component({
   selector: 'app-login',
@@ -18,13 +19,12 @@ export class LoginComponent implements OnInit {
     this.user = new User();
   }
   login(){
-    debugger;
     this.loginService.login(this.user).subscribe((e:User)=>{
-      debugger;
       localStorage.setItem("currentUser",e.userName);
-      this.router.navigate(['/userMessage']);
-    });
-
-    return true;
+      this.router.navigate(['/home']);
+    },(error => {
+      debugger;
+     alert(error.error.message);
+    }));
   }
 }

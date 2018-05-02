@@ -16,13 +16,11 @@ export class UserMessageComponent implements OnInit {
    this.listMessages();
   }
   sendMessage(){
-    debugger;
     let msg =new Message();
     let userName =localStorage.getItem("currentUser");
     msg.sendBy = userName;
     msg.message = this.formValue;
     this.dataService.sendMessage(msg).subscribe((resp)=>{
-      debugger;
       this.formValue="";
         this.dataService.getMessages();
       this.listMessages();
@@ -32,7 +30,6 @@ export class UserMessageComponent implements OnInit {
   }
   public listMessages(){
     this.dataService.getMessages().subscribe((res:any)=>{
-      debugger;
       this.messages =res;
     });
   }

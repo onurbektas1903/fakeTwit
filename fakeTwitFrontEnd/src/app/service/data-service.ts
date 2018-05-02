@@ -27,7 +27,6 @@ public sendMessage(obj) {
 }
 
   private createRequestOptions() {
-    debugger;
     let headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json');
     return headers;
