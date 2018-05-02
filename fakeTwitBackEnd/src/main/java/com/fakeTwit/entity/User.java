@@ -13,6 +13,9 @@ public class User extends BaseEntity{
     private String userName;
     private String password;
 
+    public User() {
+    }
+
     public User(String userName, String password) {
         this.userName = userName;
         this.password = password;

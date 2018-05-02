@@ -1,6 +1,7 @@
 package com.fakeTwit.service;
 
 import com.fakeTwit.entity.User;
+import com.fakeTwit.exception.CustomException;
 import com.fakeTwit.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,17 +20,17 @@ public class LoginServiceImpl implements LoginService{
     }
 
     @Override
-    public String fakeLogin(User userClient) {
+    public User fakeLogin(User userClient) {
 
         User userDb =  userRepository.findByUserName(userClient.getUserName());
         // Bu kodda string yerine custom exception yazıp onu fırlatabilirdim. Simple tutmak için bu şekilde yaptım
         if(userDb == null){
-            return "InvalidUserName";
-        }else if(!userClient.getPassword().equals(userDb)){
-            return "InvalidPassowrd;";
+           throw new CustomException("Geçersiz Kullanıcı Adı");
+        }else if(!userClient.getPassword().equals(userDb.getPassword())){
+            throw new CustomException("Geçersiz Kullanıcı Parolası");
 
         }else{
-            return userDb.getUserName();
+            return userDb;
         }
     }
 

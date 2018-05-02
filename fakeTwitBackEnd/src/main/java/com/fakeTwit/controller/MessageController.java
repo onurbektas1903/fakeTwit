@@ -1,10 +1,8 @@
 package com.fakeTwit.controller;
 
-import com.fakeTwit.entity.Message;
-import com.fakeTwit.service.LoginService;
+import com.fakeTwit.entity.UserMessage;
 import com.fakeTwit.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,13 +18,13 @@ public class MessageController {
         this.messageService =messageService;
     }
     @RequestMapping(value = "appendMessage", method = RequestMethod.POST)
-    public HttpStatus appendMessage(@RequestBody Message message) {
+    public void appendMessage(@RequestBody UserMessage message) {
          messageService.appendMessageToUser(message);
-         return HttpStatus.OK;
     }
     @RequestMapping(value = "listMessages", method = RequestMethod.GET)
-    public List<Message> listMessages() {
-        return  messageService.listMessages();
+    public List<UserMessage> listMessages() {
+           return messageService.listMessages();
+
     }
 
 

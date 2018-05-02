@@ -3,6 +3,8 @@ package com.fakeTwit.controller;
 import com.fakeTwit.entity.User;
 import com.fakeTwit.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,7 +19,7 @@ public class LoginController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String fakeLogin(@RequestBody User user) {
-            return loginService.fakeLogin(user);
+    public User fakeLogin(@RequestBody User user) {
+        return loginService.fakeLogin(user);
     }
 }

@@ -11,7 +11,7 @@ import java.util.Date;
 @Table(name = "SIMPLE_MESSAGE")
 // User ile many to many ilişkisi kurarak composition yapabilirdim ama basit tutmak için kullanıcı adı ve mesaj tutuyorum.
  // Kullanıcılar username bazında unique olacaktır.
-public class Message extends BaseEntity{
+public class UserMessage extends BaseEntity{
     private String message;
     private String sendBy;
     private Date createdTime;

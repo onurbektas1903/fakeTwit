@@ -1,11 +1,8 @@
 package com.fakeTwit.service;
 
-import com.fakeTwit.entity.Message;
-import com.fakeTwit.entity.User;
+import com.fakeTwit.entity.UserMessage;
 import com.fakeTwit.repository.MessageRepository;
-import com.fakeTwit.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,13 +20,13 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public void appendMessageToUser(Message message) {
+    public void appendMessageToUser(UserMessage message) {
         this.messageRepository.save(message);
     }
 
     @Override
-    public List<Message> listMessages() {
-        return messageRepository.findAllByOrderByCreatedTime();
+    public List<UserMessage> listMessages() {
+        return messageRepository.findAllByOrderByCreatedTimeDesc();
 
     }
 }
