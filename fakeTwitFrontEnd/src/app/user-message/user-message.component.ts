@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Message} from '../entity/message';
-import {Observable} from 'rxjs/Observable';
 import {DataService} from '../service/data-service';
 
 @Component({
@@ -10,12 +9,31 @@ import {DataService} from '../service/data-service';
 })
 export class UserMessageComponent implements OnInit {
   messages: Message[];
+  formValue:string;
   constructor(public dataService: DataService) { }
 
   ngOnInit() {
-      this.dataService.getMessages().subscribe((res:any)=>{
-        this.messages.push(res);
-      })
+   this.listMessages();
   }
+  sendMessage(){
+    debugger;
+    let msg =new Message();
+    let userName =localStorage.getItem("currentUser");
+    msg.sendBy = userName;
+    msg.message = this.formValue;
+    this.dataService.sendMessage(msg).subscribe((resp)=>{
+      debugger;
+      this.formValue="";
+        this.dataService.getMessages();
+      this.listMessages();
 
+
+    });
+  }
+  public listMessages(){
+    this.dataService.getMessages().subscribe((res:any)=>{
+      debugger;
+      this.messages =res;
+    });
+  }
 }

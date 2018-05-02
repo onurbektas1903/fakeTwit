@@ -22,9 +22,8 @@ export class DataService {
 public sendMessage(obj) {
   let options = this.createRequestOptions();
   var headers = new HttpHeaders();
-  let params = new HttpParams().set('block', 'true');
   headers.set('Content-Type', 'application/json');
-  return this.http.post('http://localhost:8084' + '/appendMessage', obj, {headers: options, params: params});
+  return this.http.post('http://localhost:8084' + '/appendMessage', obj, {headers: options});
 }
 
   private createRequestOptions() {

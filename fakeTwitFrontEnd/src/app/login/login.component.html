@@ -1,3 +1,20 @@
-<p>
-  login works!
-</p>
+<!--<div class="backGround">-->
+  <!--<div class="row">-->
+    <div class="col-md-8 col-md-offset-3" style="background: #E5E4E9">
+      <h2 style="color: #F88D58">Login</h2>
+      <form name="form" (ngSubmit)="login()" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label>Kullanıcı Adı</label>
+          <input type="text" class="form-control" name="userName" [(ngModel)]="user.userName"/>
+        </div>
+        <div class="form-group">
+          <label>Şifre</label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="user.password"/>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" tap="login()">Login</button>
+        </div>n
+      </form>
+    </div>
+  <!--</div>-->
+<!--</div>-->
