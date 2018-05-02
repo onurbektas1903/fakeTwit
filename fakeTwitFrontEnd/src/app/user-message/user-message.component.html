@@ -1,0 +1,24 @@
+<div class="container-fluid">
+
+  <h1 style="color: #FA8282">User</h1>
+
+
+  <div *ngFor="let message of messages |async ">
+
+
+    <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+                                        'to':   message.sentBy === 'user' }">
+      <pre> {{ message.message }}</pre>
+    </div>
+    <br>
+  </div>
+
+
+  <div class="row">
+
+
+    <pre id="log"></pre>
+
+  </div>
+
+</div>
