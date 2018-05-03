@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../entity/user';
 import {AuthenticationService} from '../service/auth-service';
 import {Router} from '@angular/router';
-import {errorHandler} from '@angular/platform-browser/src/browser';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +12,6 @@ export class LoginComponent implements OnInit {
   constructor(    private loginService:AuthenticationService,
                   private router: Router
                   ) { }
-
   ngOnInit() {
     this.user = new User();
   }
@@ -27,4 +24,9 @@ export class LoginComponent implements OnInit {
      alert(error.error.message);
     }));
   }
+
+  isDisabled(){
+    return (!this.user.password || this.user.password === "" || !this.user.userName || this.user.userName === "");
+  }
+
 }
