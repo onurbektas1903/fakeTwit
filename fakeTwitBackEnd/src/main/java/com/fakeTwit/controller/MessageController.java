@@ -1,6 +1,7 @@
 package com.fakeTwit.controller;
 
 import com.fakeTwit.entity.UserMessage;
+import com.fakeTwit.exception.CustomException;
 import com.fakeTwit.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,8 +19,9 @@ public class MessageController {
         this.messageService =messageService;
     }
     @RequestMapping(value = "appendMessage", method = RequestMethod.POST)
-    public void appendMessage(@RequestBody UserMessage message) {
-         messageService.appendMessageToUser(message);
+    public void appendMessage(@RequestBody UserMessage userMessage) {
+
+         messageService.appendMessageToUser(userMessage);
     }
     @RequestMapping(value = "listMessages", method = RequestMethod.GET)
     public List<UserMessage> listMessages() {

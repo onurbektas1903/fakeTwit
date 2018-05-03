@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @Component
 public class CorsFilter extends OncePerRequestFilter {
-
+    //Allow Herşey
     @Override
     protected void doFilterInternal(final HttpServletRequest request, final HttpServletResponse response,
                                     final FilterChain filterChain) throws ServletException, IOException {

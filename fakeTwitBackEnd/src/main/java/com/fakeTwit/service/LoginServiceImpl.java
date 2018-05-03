@@ -24,7 +24,9 @@ public class LoginServiceImpl implements LoginService{
         if(userClient == null ||userClient.getUserName()== null ||userClient.getPassword() == null){
             throw new CustomException("Geçersiz Kullanıcı Adı veya Parolası girilmemiş");
         }
-        User userDb =  userRepository.findByUserName(userClient.getUserName());
+            User userDb =  userRepository.findByUserName(userClient.getUserName());
+
+
         if(userDb == null){
            throw new CustomException("Geçersiz Kullanıcı Adı veya Parolası");
         }else if(!userClient.getPassword().equals(userDb.getPassword())){
